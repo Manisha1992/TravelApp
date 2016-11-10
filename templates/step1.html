@@ -1,0 +1,65 @@
+<div class="stepone-container">
+	<form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+        <div class="form-group">
+            <div class="row ">
+                <div class="col-md-4 col-form-label">
+                    <label class="labelText">First Name:</label>
+                </div>
+                <div class="col-md-6 col-form-label">
+                    <input type="text" class="form-control " name="frstname" ng-pattern="/^[a-zA-Z/ ]*$/" required ng-model="details.frstName"
+                           placeholder="First Name"/>
+                    <span class="text-error"  ng-show="userForm.frstname.$error.pattern">Enter a valid name.</span>
+                   <span class="text-error" ng-show="userForm.frstname.$dirty && userForm.frstname.$invalid">
+                        <span class="text-danger" ng-show="userForm.frstname.$error.required">Name is required.</span>
+                    </span><br>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="labelText">Last Name:</label></div>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="lastName"  ng-pattern="/^[a-zA-Z/ ]*$/"  ng-model="details.lastName" placeholder="Last Name"
+                           required/>
+                    <span class="text-error" ng-show="userForm.lastName.$touched && userForm.lastName.$invalid">
+                           Enter a valid Name.
+                    </span><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="labelText">Phone No:</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" placeholder="Contact No" name="ContactNo" class="form-control" ng-pattern="/^[789]\d{9}$/" 
+                           maxlength="10" required ng-model="details.phno"/>
+                    <span class="text-error" ng-show="userForm.ContactNo.$touched && userForm.ContactNo.$invalid">
+                            Enter a valid contact number
+                    </span><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="labelText ">Email:</label>
+                </div>
+                <div class="col-md-6">
+                    <input type="email" placeholder="Email Address" name="email" class="form-control "  ng-pattern="/^[\.\w]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" required
+                           ng-model="details.mail"/>
+                    <span class="text-error" ng-show="userForm.email.$touched && userForm.email.$invalid">
+                        Enter a valid email.
+                    </span><br>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button value="submit" ng-click="addinfo(details)" ui-sref="home.bookform.step2" class="btn btn-danger" ng-disabled="userForm.$invalid">
+      <span class="glyphicons glyphicons-arrow-right">Next Step</span>  
+    </button>
+</div>

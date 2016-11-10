@@ -1,0 +1,24 @@
+ <div class="container booking-container">
+ <div class="row booking-tab">
+ <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="tab-container">
+        <uib-tabset active="true" >
+          <uib-tab index="0" heading="Personal Details" class="navbar-brand" ui-sref-active="active" ui-sref=".step1">
+        	     <div ui-view></div>
+          </uib-tab>
+
+          <uib-tab index="1" heading="Booking" class="tab-disable navbar-brand" ui-sref-active="active" ui-sref=".step2">
+                <div ui-view></div>
+          </uib-tab>
+
+          <uib-tab index="2" heading="Confirmation" class="tab-disable navbar-brand" ui-sref-active="active" ui-sref=".step3">
+                <div ui-view></div>
+          </uib-tab>
+        </uib-tabset>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+</div>
+  	

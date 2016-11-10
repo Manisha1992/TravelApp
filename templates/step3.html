@@ -1,0 +1,64 @@
+<!-- <div>
+	<div class="col-md-12 labelText"">
+ 		<div>
+ 			<h3>{{content[0].frstName}}<span> {{content[0].lastName}}</span></h3>
+ 		</div>
+ 		
+ 		 <span> {{content[0].phno}}</span> 
+ 		 <span> will depart for</span>
+         <span>{{content[1].city}}</span>
+         <span> on</span>
+         <span>{{content[1].ddt|date:'dd-MM-yyyy'}}</span> and return on
+          <span>{{content[1].rdt|date:'dd-MM-yyyy'}}</span>
+        </div>
+    <button value="submit" class="btn btn-success" ng-click="mail()">
+        Send Email
+    </button>
+  </div>
+</div> -->
+<div class="confirmation">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="labelText">Are you sure confirm Booking</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Confirm Booking</button>
+ 			<button type="button" class="btn btn-danger" ui-sref="home">Cancel</button>
+		</div>
+	</div>
+	
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title labelText">Booking</h4>
+        </div>
+        <div class="modal-body">
+         <div>
+ 			<h3 class="labelText">{{content[0].frstName}}<span class="labelText"> {{content[0].lastName}}</span></h3>
+ 		</div>
+ 		
+ 		 <span class="labelText"> {{content[0].phno}}</span> 
+ 		 <span class="labelText"> will depart for</span>
+         <span class="labelText">{{content[1].city}}</span>
+         <span class="labelText"> on</span>
+         <span class="labelText">{{content[1].ddt|date:'dd-MM-yyyy'}}</span> <span class="labelText">and return on</span>
+          <span class="labelText">{{content[1].rdt|date:'dd-MM-yyyy'}}</span>
+        </div>
+          <div class="modal-footer">
+        	<button value="submit" class="btn btn-success" ui-sref="home" data-dismiss="modal">
+		        Send Email
+		    </button>
+      	</div>
+		  
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

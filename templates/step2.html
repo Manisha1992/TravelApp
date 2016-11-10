@@ -1,0 +1,50 @@
+<div class="stepone-container">
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="labelText">Location: </label>
+            </div>
+            <div class="col-md-6">
+            <select class="form-control" ng-model="details.city" ng-options="o as o for o in location.options" required>
+            	<option>{{o}}</option>
+            </select><br>
+        	</div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label class="labelText">Departure Date:</label></div>
+            <div class="col-md-6">
+                <p class="input-group">
+                    <input type="text" uib-datepicker-popup class="form-control" ng-model="details.ddt" name="ddt" 
+                           is-open="main.opened" close-text="Close" datepicker-options="dateOptions" placeholder="YYYY-DD-MM" required/>
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="$event.preventDefault();
+                $event.stopPropagation(); main.opened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+                                     
+                </p>
+            </div>
+        </div>  
+        <span class="text-error" ng-show="userForm.ddt.$touched && userForm.ddt.$invalid"> Enter valid Departure date .
+        </span> <br>
+        
+        <div class="row">
+            <div class="col-md-4">
+                <label class="labelText">Return Date:</label></div>
+            <div class="col-md-6">
+                <p class="input-group">
+                    <input type="text" uib-datepicker-popup class="form-control" datepicker-options="dateOptions"
+                           ng-model="details.rdt" name="rdt" ng-change="checkErr(details.ddt,details.rdt)"
+                           is-open="main1.opened" close-text="Close" placeholder="YYYY-DD-MM" required/><span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="$event.preventDefault();
+                $event.stopPropagation(); main1.opened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+                </p>
+        <span class="text-error"> {{errMessage}}
+        </span> <br>
+            </div>   
+        </div>
+    </form>
+    <button value="submit" ng-click="addinfo(details)" ui-sref="home.bookform.step3" class="btn btn-danger" ng-disabled="userForm.$invalid">
+      <span class="glyphicons glyphicons-arrow-right">Next Step</span> 
+</div>
